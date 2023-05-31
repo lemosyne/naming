@@ -19,10 +19,6 @@ pub trait Namer {
     /// Removes the mapping from `name` to its ID.
     fn remove(&mut self, name: &Self::Name) -> Option<Self::Id>;
 
-    /// Remaps the ID for `old` to `new`.
-    /// The previously mapped ID for `new` is returned if it existed.
-    fn remap(&mut self, old: &Self::Name, new: Self::Name) -> Option<Self::Id>;
-
     /// Returns an iterator of name and ID pairs.
     /// The semantics of what pairs are iterated over are decided by the namer.
     fn scan(&mut self, name: &Self::Name) -> Self::Scan<'_>;
